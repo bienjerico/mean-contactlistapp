@@ -1,18 +1,8 @@
 var express = require('express');
 var app = express();
-var mongojs = require('mongojs');
-// var db = mongojs('contactlist',['contactlist']);
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-
-mongoose.connect('mongodb://localhost:27017/contactlist');
-var ContactListSchema = new mongoose.Schema({
-  name : String,
-  email : String,
-  number : String
-});
-
-var Contacts = mongoose.model('Contacts',ContactListSchema);
+var Contacts = require('./db.js');
 
 
 app.use(express.static(__dirname + "/public"));
@@ -33,7 +23,7 @@ app.get('/contactlist',function(req,res){
 app.post('/contactlist',function(req,res){
 
   console.log(req.body);
-  console.log("beforesave");
+
   var contacts = new Contacts(req.body);
 
   contacts.save(function(err,docs){
