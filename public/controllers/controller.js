@@ -2,14 +2,14 @@ app.controller('AppCtrl',function($scope,$http){
 
     console.log("hello world from controller");
 
-var refresh = function(){
-    $http.get('/contactlist').success(function(response){
+    var refresh = function(){
+      $http.get('/contactlist').success(function(response){
 
-      console.log("I got the data I requested");
-      $scope.contactlist = response;
-      $scope.contact = "";
-    });
-}
+        console.log("I got the data I requested");
+        $scope.contactlist = response;
+        $scope.contact = "";
+      });
+    }
 
 refresh();
 

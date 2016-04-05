@@ -7,6 +7,15 @@ var ContactListSchema = new mongoose.Schema({
   number : String
 });
 
-var Contacts = mongoose.model('Contacts',ContactListSchema);
+var SignUpSchema = new mongoose.Schema({
+  emailaddress : String,
+  password : String,
+  created_at : { type: Date, default: Date.now }
+});
 
-module.exports = Contacts;
+
+var Contacts = mongoose.model('Contacts',ContactListSchema);
+var SignUp = mongoose.model('SignUp',SignUpSchema);
+
+// module.exports = Contacts;
+// module.exports = SignUp;
