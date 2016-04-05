@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  </head>
+  <body ng-app="SignUnApp">
+    <div class="container" ng-controller="SignUpCtrl">
+
+      <div class="alert alert-success" ng-show="success" role="alert">
+        {{ success }}
+      </div>
+
+
+        <h1>Sign Up</h1>
+
+        <h3>Email:</h3>
+        <div ng-class="{ 'has-error': errors.emailaddress }">
+          <input type="text" name="emailaddress" id="emailaddress" ng-model="signup.emailaddress" value="">
+          <p class="help-block" ng-model="errors.emailaddress" ng-show="errors.emailaddress">{{errors.emailaddress}}</p>
+        </div>
+
+        <h3>Password:</h3>
+        <div ng-class="{ 'has-error': errors.password }">
+          <input type="text" name="password" id="password" ng-model="signup.password" value="">
+          <p class="help-block" ng-model="errors.password" ng-show="errors.password">{{errors.password}}</p>
+        </div>
+
+        <h3>Confirm Password:</h3>
+        <div ng-class="{ 'has-error': errors.confirmpassword }">
+          <input type="text" name="confirmpassword" id="confirmpassword" ng-model="signup.confirmpassword"  value="">
+          <p class="help-block" ng-model="errors.confirmpassword" ng-show="errors.confirmpassword">{{errors.confirmpassword}}</p>
+        </div>
+
+        <div class="clearfix">&nbsp;</div>
+
+        <div>
+          <button name="btn-signup" id="btn-signup" ng-click="clicksignup()" class="btn btn-info">Sign Up</button>
+        </div>
+
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="controllers/app.js"></script>
+<script src="controllers/signupcontroller.js"></script>
+  </body>
+</html>
