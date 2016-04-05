@@ -3,6 +3,7 @@ var app = express();
 var mongojs = require('mongojs');
 var db = mongojs('contactlist',['contactlist']);
 var bodyParser = require('body-parser');
+var util = require('util');
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -59,3 +60,4 @@ app.put('/contactlist/:id',function(req,res){
 
 app.listen(3000);
 console.log("Server running on port 3000");
+util.puts('hello world running on port 3000')
